@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import  "./App.css"
+import TodoApp from "./components/TodoApp";
+import { ToastContainer, Slide } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>todo list</h1>
+      <TodoApp/>
+      <ToastContainer closeButton={false} position="top-right" transition={Slide}/>
+      
     </div>
   );
-}
+};
 
 export default App;
