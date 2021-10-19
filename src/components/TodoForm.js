@@ -2,10 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 
 import { toast } from "react-toastify";
 
-const TodoForm = (props) => {
-  const [inputValue, setInputValue] = useState(
-    props.edit ? props.edit.text : ""
-  );
+const TodoForm = ({ edit, submitTodo }) => {
+  const [inputValue, setInputValue] = useState(edit ? edit.text : "");
   const changeHandler = (e) => {
     //   console.log(e.target.value);
     setInputValue(e.target.value);
@@ -16,7 +14,7 @@ const TodoForm = (props) => {
       toast.warning("please enter your text!");
       return;
     }
-    props.submitTodo(inputValue);
+    submitTodo(inputValue);
     setInputValue("");
   };
   const inputRef = useRef(null);
@@ -25,14 +23,21 @@ const TodoForm = (props) => {
   }, []);
   return (
     <form onSubmit={submitHandler}>
-      <input
-        type="text"
-        onChange={changeHandler}
-        value={inputValue}
-        placeholder={props.edit ? "Update todo ..." : "Add todo..."}
-        ref={inputRef}
-      ></input>
-      <button type="submit">{props.edit ? "Update" : "Add"}</button>
+      <div className="formControl">
+        <input
+          type="text"
+          onChange={changeHandler}
+          value={inputValue}
+          placeholder={edit ? "Update todo ..." : "Add todo..."}
+          ref={inputRef}
+        ></input>
+        <button
+          className={`btn ${edit ? "updateTodo" : "addTodo"}`}
+          type="submit"
+        >
+          {edit ? "Update" : "Add"}
+        </button>
+      </div>
     </form>
   );
 };
