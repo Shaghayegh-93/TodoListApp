@@ -36,12 +36,44 @@
   cursor: pointer;
 }
 
-input{
+input {
   border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 5px 3px ;
+  padding: 5px 3px;
   outline: none;
+  width: 200px;
 }
-input:focus{
-  border:1px solid blueviolet;
+input:focus {
+  border: 2px solid blueviolet;
+}
+
+.formControl {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 20rem;
+  margin-bottom: 20px;
+}
+
+.btn {
+  color: #6d28d9;
+  background-color: #fff;
+  border: 1px solid #6d28d9;
+  border-radius: 5px;
+  outline: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.remove {
+  color: rgb(236, 68, 68);
+  border: 1px solid rgb(236, 68, 68);
+  margin-left: 10px;
+}
+.addTodo {
+  background-color: #6d28d9;
+  color: #fff;
+}
+
+.updateTodo {
+  color: #6d28d9;
 }
